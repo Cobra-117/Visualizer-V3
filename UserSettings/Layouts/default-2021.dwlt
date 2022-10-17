@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1000
   m_ShowMode: 4
-  m_Title: 
+  m_Title: Inspector
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -45,8 +45,8 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 950
-  m_MinSize: {x: 679, y: 492}
-  m_MaxSize: {x: 14002, y: 14042}
+  m_MinSize: {x: 300, y: 200}
+  m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
   controlID: 20
 --- !u!114 &3
@@ -59,19 +59,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
+  m_Name: InspectorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1466
+    x: 1385
     y: 0
-    width: 454
+    width: 535
     height: 950
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 13}
+  m_ActualView: {fileID: 15}
   m_Panes:
+  - {fileID: 15}
   - {fileID: 13}
   m_Selected: 0
   m_LastSelected: 0
@@ -85,22 +86,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
+  m_Name: SceneHierarchyWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 363
-    height: 565
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 14}
+    width: 340
+    height: 566
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 16}
   m_Panes:
-  - {fileID: 14}
+  - {fileID: 16}
+  - {fileID: 12}
   m_Selected: 0
-  m_LastSelected: 0
+  m_LastSelected: 1
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -111,23 +113,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 565
-    width: 1466
-    height: 385
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 12}
+    y: 566
+    width: 1385
+    height: 384
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 19}
   m_Panes:
-  - {fileID: 12}
-  - {fileID: 17}
-  m_Selected: 0
-  m_LastSelected: 1
+  - {fileID: 14}
+  - {fileID: 19}
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -218,10 +220,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1466
+    width: 1385
     height: 950
-  m_MinSize: {x: 403, y: 492}
-  m_MaxSize: {x: 10001, y: 14042}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
   controlID: 21
 --- !u!114 &10
@@ -243,10 +245,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1466
-    height: 565
-  m_MinSize: {x: 403, y: 221}
-  m_MaxSize: {x: 8003, y: 4021}
+    width: 1385
+    height: 566
+  m_MinSize: {x: 200, y: 100}
+  m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
   controlID: 22
 --- !u!114 &11
@@ -259,24 +261,373 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
+  m_Name: GameView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 363
+    x: 340
     y: 0
-    width: 1103
-    height: 565
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 15}
+    width: 1045
+    height: 566
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 18}
   m_Panes:
-  - {fileID: 15}
-  - {fileID: 16}
-  m_Selected: 0
-  m_LastSelected: 1
+  - {fileID: 17}
+  - {fileID: 18}
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &12
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 139222468, guid: 8dc1be91775c4bb469f6b74cef450eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: NuGet
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 110
+    width: 339
+    height: 545
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  hasRefreshed: 1
+  availablePackages:
+  - Id: NAudio
+    Version: 2.1.0
+    Title: NAudio
+    Description: NAudio, an audio library for .NET
+    Summary: 
+    ReleaseNotes: 
+    LicenseUrl: https://www.nuget.org/packages/NAudio/2.1.0/license
+    DownloadUrl: https://www.nuget.org/api/v2/package/NAudio/2.1.0
+    DownloadCount: 3653865
+    Authors: Mark Heath & Contributors
+    Icon: {fileID: 0}
+    ProjectUrl: https://github.com/naudio/NAudio
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: NAudio.Lame
+    Version: 2.0.1
+    Title: NAudio.Lame
+    Description: Uses libmp3lame.dll from the Lame project to provide MP3 encoding
+      support to NAudio 2.0.  Both 64-bit and 32-bit versions of libmp3lame.dll are
+      provided, with platform detection to determine which to use.
+    Summary: Implements MP3 writing for NAudio using libmp3lame.
+    ReleaseNotes: 'v2.0.1 Fix exception when NAudio.Lame loaded as memory assembly.
+
+
+      v2.0.0
+      Binding to NAudio 2.0.0, version alignment with NAudio. No feature updates.
+
+
+      v1.1.6
+      Added more VBR encoding options and some basic tests for them.
+
+
+      v1.1.5
+      Added OutputSampleRate to LameConfig.
+
+
+      v1.1.4 Fixed VBR presets and
+      added VBR mode to configuration.
+
+
+      v1.1.3 Added a new NativeDLL loader
+      method that can be called with search paths.
+
+
+      v1.1.2 Fixed some issues
+      with sample rate, configuration, short ID3 tags, etc.  Refer to project page
+      for full information.
+
+
+      v1.1.1 Updated all projects to NAudio v1.10.0,
+      added LameConfig, reorganised writer construction, updated .NET Core tests
+      to dotnet 3.1.
+
+
+      v1.1.0 Changed all projects to .NET STandard 2.0, rebuilt
+      testing using .NET Core, fixed loader initialization problems.'
+    LicenseUrl: https://www.nuget.org/packages/NAudio.Lame/2.0.1/license
+    DownloadUrl: https://www.nuget.org/api/v2/package/NAudio.Lame/2.0.1
+    DownloadCount: 467553
+    Authors: Corey Murtagh
+    Icon: {fileID: 0}
+    ProjectUrl: https://github.com/Corey-M/NAudio.Lame
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: NAudio.Core
+    Version: 2.1.0
+    Title: NAudio.Core
+    Description: Package Description
+    Summary: 
+    ReleaseNotes: 
+    LicenseUrl: https://www.nuget.org/packages/NAudio.Core/2.1.0/license
+    DownloadUrl: https://www.nuget.org/api/v2/package/NAudio.Core/2.1.0
+    DownloadCount: 552990
+    Authors: Mark Heath
+    Icon: {fileID: 0}
+    ProjectUrl: https://github.com/naudio/NAudio
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: NAudio.Wasapi
+    Version: 2.1.0
+    Title: NAudio.Wasapi
+    Description: Package Description
+    Summary: 
+    ReleaseNotes: 
+    LicenseUrl: https://www.nuget.org/packages/NAudio.Wasapi/2.1.0/license
+    DownloadUrl: https://www.nuget.org/api/v2/package/NAudio.Wasapi/2.1.0
+    DownloadCount: 378224
+    Authors: Mark Heath
+    Icon: {fileID: 0}
+    ProjectUrl: https://github.com/naudio/NAudio
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: NAudio.WinMM
+    Version: 2.1.0
+    Title: NAudio.WinMM
+    Description: Package Description
+    Summary: 
+    ReleaseNotes: 
+    LicenseUrl: https://www.nuget.org/packages/NAudio.WinMM/2.1.0/license
+    DownloadUrl: https://www.nuget.org/api/v2/package/NAudio.WinMM/2.1.0
+    DownloadCount: 379726
+    Authors: NAudio.WinMM
+    Icon: {fileID: 0}
+    ProjectUrl: https://github.com/naudio/NAudio
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: NAudio.Midi
+    Version: 2.1.0
+    Title: NAudio.Midi
+    Description: Package Description
+    Summary: 
+    ReleaseNotes: 
+    LicenseUrl: https://www.nuget.org/packages/NAudio.Midi/2.1.0/license
+    DownloadUrl: https://www.nuget.org/api/v2/package/NAudio.Midi/2.1.0
+    DownloadCount: 367319
+    Authors: Mark Heath
+    Icon: {fileID: 0}
+    ProjectUrl: https://github.com/naudio/NAudio
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: NAudio.Asio
+    Version: 2.1.0
+    Title: NAudio.Asio
+    Description: Package Description
+    Summary: 
+    ReleaseNotes: 
+    LicenseUrl: https://www.nuget.org/packages/NAudio.Asio/2.1.0/license
+    DownloadUrl: https://www.nuget.org/api/v2/package/NAudio.Asio/2.1.0
+    DownloadCount: 353998
+    Authors: Mark Heath
+    Icon: {fileID: 0}
+    ProjectUrl: https://github.com/naudio/NAudio
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: NAudio.WinForms
+    Version: 2.1.0
+    Title: NAudio.WinForms
+    Description: Package Description
+    Summary: 
+    ReleaseNotes: 
+    LicenseUrl: https://www.nuget.org/packages/NAudio.WinForms/2.1.0/license
+    DownloadUrl: https://www.nuget.org/api/v2/package/NAudio.WinForms/2.1.0
+    DownloadCount: 350553
+    Authors: Mark Heath
+    Icon: {fileID: 0}
+    ProjectUrl: https://github.com/naudio/NAudio
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: NAudio.Vorbis
+    Version: 1.5.0
+    Title: NAudio.Vorbis
+    Description: NAudio support for Vorbis
+    Summary: 
+    ReleaseNotes: '- Update to NVorbis v0.10.4 (Fixes seek issues)'
+    LicenseUrl: https://www.nuget.org/packages/NAudio.Vorbis/1.5.0/license
+    DownloadUrl: https://www.nuget.org/api/v2/package/NAudio.Vorbis/1.5.0
+    DownloadCount: 103233
+    Authors: Andrew Ward
+    Icon: {fileID: 0}
+    ProjectUrl: https://github.com/naudio/Vorbis
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: NLayer.NAudioSupport
+    Version: 1.3.0
+    Title: NLayer.NAudioSupport
+    Description: NAudio support for NLayer
+    Summary: 
+    ReleaseNotes: 
+    LicenseUrl: https://www.nuget.org/packages/NLayer.NAudioSupport/1.3.0/license
+    DownloadUrl: https://www.nuget.org/api/v2/package/NLayer.NAudioSupport/1.3.0
+    DownloadCount: 94162
+    Authors: Mark Heath
+    Icon: {fileID: 0}
+    ProjectUrl: https://github.com/naudio/NLayer
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: FM.IceLink.WebRTC.NAudio
+    Version: 2.9.32
+    Title: IceLink WebRTC NAudio Extension for .NET, Community Edition
+    Description: A library for .NET that includes NAudio-based audio providers for
+      IceLink's WebRTC extension. (Community Edition)
+    Summary: 
+    ReleaseNotes: 
+    LicenseUrl: 
+    DownloadUrl: https://www.nuget.org/api/v2/package/FM.IceLink.WebRTC.NAudio/2.9.32
+    DownloadCount: 57591
+    Authors: Frozen Mountain Software
+    Icon: {fileID: 0}
+    ProjectUrl: http://www.frozenmountain.com/icelink/
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: FM.LiveSwitch.NAudio
+    Version: 1.16.3.22318
+    Title: LiveSwitch NAudio Extension
+    Description: A library for .NET that integrates the NAudio audio framework with
+      LiveSwitch.
+    Summary: 
+    ReleaseNotes: 
+    LicenseUrl: 
+    DownloadUrl: https://www.nuget.org/api/v2/package/FM.LiveSwitch.NAudio/1.16.3.22318
+    DownloadCount: 22640
+    Authors: Frozen Mountain Software
+    Icon: {fileID: 0}
+    ProjectUrl: http://www.frozenmountain.com/liveswitch/
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: NAudio.Wma
+    Version: 1.0.1
+    Title: NAudio.Wma
+    Description: WMA Extension for NAudio
+    Summary: 
+    ReleaseNotes: 
+    LicenseUrl: http://naudio.codeplex.com/license
+    DownloadUrl: https://www.nuget.org/api/v2/package/NAudio.Wma/1.0.1
+    DownloadCount: 27494
+    Authors: Mark Heath, Yuval Naveh
+    Icon: {fileID: 0}
+    ProjectUrl: http://naudio.codeplex.com/
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: NAudio.Flac
+    Version: 1.0.5702.29018
+    Title: NAudio.Flac
+    Description: NAudio Flac Library from code.google.com/p/naudio-flac
+    Summary: 
+    ReleaseNotes: 
+    LicenseUrl: 
+    DownloadUrl: https://www.nuget.org/api/v2/package/NAudio.Flac/1.0.5702.29018
+    DownloadCount: 22120
+    Authors: Nathan Harrenstein
+    Icon: {fileID: 0}
+    ProjectUrl: https://github.com/nharren/NAudio.Flac
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  - Id: DtmfDetection.NAudio
+    Version: 1.2.2
+    Title: DtmfDetection.NAudio
+    Description: 'Extends NAudio with means to detect DTMF tones (aka touch tones)
+      in live audio data and audio files.
+
+
+      Documentation: https://github.com/bert2/DtmfDetection
+
+
+      Release
+      notes: Refactor wait time estimation of the `BackgroundAnalyzer` to a less
+      handcrafted solution.'
+    Summary: 
+    ReleaseNotes: Refactor wait time estimation of the `BackgroundAnalyzer` to a
+      less handcrafted solution.
+    LicenseUrl: https://www.nuget.org/packages/DtmfDetection.NAudio/1.2.2/license
+    DownloadUrl: https://www.nuget.org/api/v2/package/DtmfDetection.NAudio/1.2.2
+    DownloadCount: 22515
+    Authors: Robert Hofmann
+    Icon: {fileID: 0}
+    ProjectUrl: 
+    RepositoryUrl: 
+    RepositoryType: 0
+    RepositoryBranch: 
+    RepositoryCommit: 
+  updatePackages: []
+  numberToSkip: 0
+  defaultIcon: {fileID: 2800000, guid: eec19781926cd2248b7c9abfde8db555, type: 3}
+--- !u!114 &13
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13953, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 800, y: 250}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Package Manager
+    m_Image: {fileID: -2824328813065806953, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 1103
+    y: 110
+    width: 816
+    height: 929
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,9 +648,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 675
-    width: 1465
-    height: 364
+    y: 676
+    width: 1384
+    height: 363
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -325,14 +676,14 @@ MonoBehaviour:
   m_LastFolders:
   - Assets
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: /home/tLacheroy/CMGT/Visualizer-V3/Visualizer-V3
+  m_LastProjectPath: /home/tLacheroy/CMGT/Visualizer-V3
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 2c630000
-    m_LastClickedID: 25388
-    m_ExpandedIDs: 000000002c63000000ca9a3bffffff7f
+    m_SelectedIDs: 9c5f0000
+    m_LastClickedID: 24476
+    m_ExpandedIDs: 000000009c5f000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -360,7 +711,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 000000009c5f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -385,9 +736,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 4af9ffff
+    m_LastClickedInstanceID: -1718
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -416,7 +767,7 @@ MonoBehaviour:
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
---- !u!114 &13
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -436,9 +787,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1466
+    x: 1385
     y: 110
-    width: 453
+    width: 534
     height: 929
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -451,13 +802,13 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 492
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
---- !u!114 &14
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -479,8 +830,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 110
-    width: 362
-    height: 544
+    width: 339
+    height: 545
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -488,9 +839,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 1cfbffff
+      m_SelectedIDs: 4af9ffff
+      m_LastClickedID: -1718
+      m_ExpandedIDs: 28fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -514,7 +865,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 4c969a2b90040154d917609493e03593
---- !u!114 &15
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -537,7 +888,7 @@ MonoBehaviour:
     x: 363
     y: 110
     width: 1101
-    height: 544
+    height: 545
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -645,7 +996,7 @@ MonoBehaviour:
       containerId: overlay-container--right
       floating: 0
       collapsed: 0
-      displayed: 0
+      displayed: 1
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
@@ -794,7 +1145,7 @@ MonoBehaviour:
       m_Fade:
         m_Target: 0
         speed: 2
-        m_Value: 1
+        m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
@@ -841,7 +1192,7 @@ MonoBehaviour:
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &16
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -861,10 +1212,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 507
-    y: 94
-    width: 1532
-    height: 790
+    x: 340
+    y: 110
+    width: 1043
+    height: 545
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -875,10 +1226,10 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1532, y: 769}
+  m_TargetSize: {x: 1043, y: 524}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
-  m_RenderIMGUI: 0
+  m_RenderIMGUI: 1
   m_EnterPlayModeBehavior: 0
   m_UseMipMap: 0
   m_VSyncEnabled: 0
@@ -890,10 +1241,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -766
-    m_HBaseRangeMax: 766
-    m_VBaseRangeMin: -384.5
-    m_VBaseRangeMax: 384.5
+    m_HBaseRangeMin: -521.5
+    m_HBaseRangeMax: 521.5
+    m_VBaseRangeMin: -262
+    m_VBaseRangeMax: 262
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -911,29 +1262,29 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 1532
-      height: 769
+      width: 1043
+      height: 524
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 766, y: 384.5}
+    m_Translation: {x: 521.5, y: 262}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -766
-      y: -384.5
-      width: 1532
-      height: 769
+      x: -521.5
+      y: -262
+      width: 1043
+      height: 524
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 1532, y: 790}
+  m_LastWindowPixelSize: {x: 1043, y: 545}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
---- !u!114 &17
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -953,10 +1304,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 2249
-    y: 726.5
-    width: 920
-    height: 250
+    x: 0
+    y: 676
+    width: 1384
+    height: 363
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default

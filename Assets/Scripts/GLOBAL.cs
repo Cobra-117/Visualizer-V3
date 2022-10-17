@@ -12,5 +12,6 @@ public class GLOBAL : MonoBehaviour
         public static string artist = "";
         public static int BPM = 10;
         public static string status = "Loading";
+        public static string path = "";
     }
 }
