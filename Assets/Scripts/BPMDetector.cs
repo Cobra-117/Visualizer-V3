@@ -5,6 +5,9 @@ using System;
 using System.Linq;
 using System.Text;
 using NAudio.Wave;
+using System.IO;
+using UnityEngine.Networking;
+using System.Threading.Tasks;
 
 public class BPMDetector : MonoBehaviour
 {
@@ -17,6 +20,8 @@ public class BPMDetector : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip clip;
+
+    public Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
 
     void Start()
     {   
@@ -148,11 +153,76 @@ public class BPMDetector : MonoBehaviour
         return tmp;
     }
 
-    public void LoadMusic(string path) {
-        clip = Resources.Load<AudioClip>("silence");
-        audioSource.clip = clip;
+    public async void LoadMusic(string path) {
+        //clip = Resources.Load<AudioClip>(Application.persistentDataPath + "piano.wav");
+        
         //audioSource.Play();
-        Detect();
+        /*Detect();
+        var fileNames = Directory.GetFiles(Application.persistentDataPath, "*.jpg");
+        foreach(var fileName in fileNames)
+        {
+            Debug.Log("filename : " +fileName);
+            StartCoroutine (LoadFile(fileName));
+        }*/
+        var audiopath = Path.Combine(Application.persistentDataPath, "piano.wav");
+        clip = await LoadClip(audiopath);
+        audioSource.clip = clip;
+        audioSource.Play();
+    }
+
+     async Task<AudioClip> LoadClip(string path)
+    {
+     //AudioClip clip = null;
+     Debug.Log("path: " + path);
+     using (UnityWebRequest uwr = UnityWebRequestMultimedia.GetAudioClip(path, AudioType.WAV))
+     {
+         uwr.SendWebRequest();
+ 
+         // wrap tasks in try/catch, otherwise it'll fail silently
+         try
+         {
+             while (!uwr.isDone) await Task.Delay(5);
+ 
+             if (uwr.result == UnityWebRequest.Result.ConnectionError 
+                || uwr.result == UnityWebRequest.Result.ProtocolError) 
+                Debug.Log($"{uwr.error}");
+             else
+             {
+                 clip = DownloadHandlerAudioClip.GetContent(uwr);
+             }
+         }
+         catch (Exception err)
+         {
+             Debug.Log($"{err.Message}, {err.StackTrace}");
+         }
+     }
+ 
+     return clip;
+ }
+
+    private IEnumerator LoadFile(string filePath)
+    {
+        using (UnityWebRequest uwr = UnityWebRequestTexture.GetTexture(filePath))
+    //using (UnityWebRequest uwr = UnityWebRequestMultimedia.GetAudioClip(filePath, AudioType.WAV))
+    {
+        yield return uwr.SendWebRequest();
+
+        if (uwr.result == UnityWebRequest.Result.ProtocolError)
+        {
+            Debug.Log(uwr.error);
+        }
+        else
+        {
+            // Get downloaded asset bundle
+            /*var texture = DownloadHandlerTexture.GetContent(uwr);
+
+            // Something with the texture e.g.
+            // store it to later access it by fileName
+            var fileName = Path.GetFileName(filePath);
+            textures[fileName] = texture;*/
+            //clip= DownloadHandlerAudioClip.GetContent(uwr);
+            //clip = (AudioClip)tmpclip;
+        }
+    }
     }
 }
-

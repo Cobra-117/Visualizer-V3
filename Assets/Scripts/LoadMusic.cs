@@ -30,7 +30,7 @@ public class LoadMusic : MonoBehaviour
 		// Name: Users
 		// Path: C:\Users
 		// Icon: default (folder icon)
-		FileBrowser.AddQuickLink( "Users", "C:\\Users", null );
+		//FileBrowser.AddQuickLink( "Users", "C:\\Users", null );
 
 		// Show a save file dialog 
 		// onSuccess event: not registered (which means this dialog is pretty useless)
@@ -51,9 +51,14 @@ public class LoadMusic : MonoBehaviour
 		//						   FileBrowser.PickMode.Folders, false, null, null, "Select Folder", "Select" );
 
 		// Coroutine example
-		StartCoroutine( ShowLoadDialogCoroutine() );
+		LoadNewMusic();
     }
 
+	public void LoadNewMusic()
+	{
+		StartCoroutine(ShowLoadDialogCoroutine());
+
+	}
     // Update is called once per frame
     IEnumerator ShowLoadDialogCoroutine()
 	{
@@ -81,11 +86,11 @@ public class LoadMusic : MonoBehaviour
 			string destinationPath = Path.Combine( Application.persistentDataPath, FileBrowserHelpers.GetFilename( FileBrowser.Result[0] ) );
 			FileBrowserHelpers.CopyFile(FileBrowser.Result[0], destinationPath );
             Debug.Log("Path: " + FileBrowser.Result[0]);
-            getName(FileBrowser.Result[0]);
+            GLOBAL.CurrentMusic.name = GetName(FileBrowser.Result[0]);
 		}
 	}
 
-    void getName(string path)
+    string GetName(string path)
     {
         int nameStartIndex = 0;
         string backslash  = @"\";
@@ -105,5 +110,6 @@ public class LoadMusic : MonoBehaviour
             //Debug.Log("name : " + name);
         }
         Debug.Log("name: " + name);
+		return (name);
     }
 }
