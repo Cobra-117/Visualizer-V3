@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using System;
 using System.Linq;
 using System.Text;
@@ -29,12 +30,16 @@ public class BPMDetector : MonoBehaviour
         Debug.Log("sampleRate1: " + sampleRate.ToString());
         filename = "Assets/Resources/silence.wav";
         audioSource = this.gameObject.GetComponent<AudioSource>();
-        LoadMusic(filename);
+        //LoadMusic(filename);
         //Detect();
     }
     void Update()
     {
         Debug.Log("BPM: " + getBPM().ToString());
+        if (GLOBAL.CurrentMusic.isLoaded == false) {
+            LoadMusic(GLOBAL.CurrentMusic.name);
+            GLOBAL.CurrentMusic.isLoaded = true;
+        }
     }
     public double getBPM()
     {
@@ -164,15 +169,26 @@ public class BPMDetector : MonoBehaviour
             Debug.Log("filename : " +fileName);
             StartCoroutine (LoadFile(fileName));
         }*/
-        var audiopath = Path.Combine(Application.persistentDataPath, "piano.wav");
-        clip = await LoadClip(audiopath);
+        //clip = Resources.Load(Path.Combine( Application.dataPath, "Resources", "Axel_F.wav")) as AudioClip;
+        Debug.Log("GlbName : " + GLOBAL.CurrentMusic.name);
+        clip = Resources.Load<AudioClip>(System.IO.Path.GetFileNameWithoutExtension(GLOBAL.CurrentMusic.name));
+        /*var audiopath = Path.Combine(Application.persistentDataPath, path);
+        Debug.Log("path: " + audiopath.ToString());
+        clip = await LoadClip(audiopath);*/
         audioSource.clip = clip;
+        if (clip)
+            Debug.Log("Frequency :" + clip.frequency.ToString());
         audioSource.Play();
+        //clip.
+        //filename = Path.Combine( Application.dataPath, "Axel_F.wav");
+        Detect();
     }
 
      async Task<AudioClip> LoadClip(string path)
     {
      //AudioClip clip = null;
+     clip = Resources.Load(Path.Combine( Application.dataPath, "Axel_F.wav")) as AudioClip;
+     return clip;
      Debug.Log("path: " + path);
      using (UnityWebRequest uwr = UnityWebRequestMultimedia.GetAudioClip(path, AudioType.WAV))
      {
@@ -189,6 +205,8 @@ public class BPMDetector : MonoBehaviour
              else
              {
                  clip = DownloadHandlerAudioClip.GetContent(uwr);
+                //string assetPath = AssetDatabase.GetAssetPath(clip.GetInstanceID());
+                //Debug.Log("clip path: " + assetPath);
              }
          }
          catch (Exception err)

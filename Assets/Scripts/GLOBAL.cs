@@ -13,5 +13,6 @@ public class GLOBAL : MonoBehaviour
         public static int BPM = 10;
         public static string status = "Loading";
         public static string path = "";
+        public static bool isLoaded = false;
     }
 }

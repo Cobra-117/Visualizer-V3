@@ -8,6 +8,7 @@ public class ParticlesModifier : MonoBehaviour
 {
     //public BPMDetector bPMDetector;
     public ParticleSystem particleSystem;
+    //public BPMDetector bpm
 
     public Color[] colors;// =  {new Color(0.52f, 0.03f, 0.76f)/*purple*/,
    // new Color(0.03f, 0.89f, 0.78f)/*cyan*/, new Color(8, 195, 16)/*green*/,

@@ -14,7 +14,6 @@ public class LoadMusic : MonoBehaviour
 		// It is sufficient to set the filters just once (instead of each time before showing the file browser dialog), 
 		// if all the dialogs will be using the same filters
 		FileBrowser.SetFilters( true, new FileBrowser.Filter( "Musics", ".wav"), new FileBrowser.Filter( "Text Files", ".txt", ".pdf" ) );
-
 		// Set default filter that is selected when the dialog is shown (optional)
 		// Returns true if the default filter is set successfully
 		// In this case, set Images filter as the default filter
@@ -83,10 +82,16 @@ public class LoadMusic : MonoBehaviour
 			byte[] bytes = FileBrowserHelpers.ReadBytesFromFile( FileBrowser.Result[0] );
 
 			// Or, copy the first file to persistentDataPath
-			string destinationPath = Path.Combine( Application.persistentDataPath, FileBrowserHelpers.GetFilename( FileBrowser.Result[0] ) );
+			//string destinationPath = Path.Combine( Application.persistentDataPath, FileBrowserHelpers.GetFilename( FileBrowser.Result[0] ) );
+			//string destinationPath = Path.Combine( Application.dataPath, "Resources", FileBrowserHelpers.GetFilename( FileBrowser.Result[0] ) );
+			string destinationPath = Path.Combine( Application.streamingAssetsPath, FileBrowserHelpers.GetFilename( FileBrowser.Result[0] ) );
+
+			Debug.Log("dest path : " + destinationPath.ToString());
 			FileBrowserHelpers.CopyFile(FileBrowser.Result[0], destinationPath );
             Debug.Log("Path: " + FileBrowser.Result[0]);
             GLOBAL.CurrentMusic.name = GetName(FileBrowser.Result[0]);
+			GLOBAL.CurrentMusic.isLoaded = false;
+			//Debug.Log("name :" + name);
 		}
 	}
 
