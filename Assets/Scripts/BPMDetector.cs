@@ -176,9 +176,9 @@ public class BPMDetector : MonoBehaviour
         //clip = Resources.Load(Path.Combine( Application.dataPath, "Resources", "Axel_F.wav")) as AudioClip;
         Debug.Log("GlbName : " + GLOBAL.CurrentMusic.name);
         //clip = Resources.Load<AudioClip>(System.IO.Path.GetFileNameWithoutExtension(GLOBAL.CurrentMusic.name));
-        var audiopath = Path.Combine(Application.streamingAssetsPath, "silence.wav");
+        var audiopath = Path.Combine(Application.streamingAssetsPath, GLOBAL.CurrentMusic.name);
         Debug.Log("path: " + audiopath.ToString());
-        clip = await LoadClip(audiopath);
+        await LoadClip(audiopath);
         audioSource.clip = clip;
         if (clip)
             Debug.Log("Frequency :" + clip.frequency.ToString());

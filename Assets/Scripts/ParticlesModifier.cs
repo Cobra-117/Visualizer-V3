@@ -44,7 +44,7 @@ public class ParticlesModifier : MonoBehaviour
         float test  = (float)BPM * 5; 
         //mainModule.simulationSpeed = Mathf.Sqrt((float)GLOBAL.CurrentMusic.BPM * (float)GLOBAL.CurrentMusic.BPM* goldenNumber)/100;
         //energy = float.Parse(GameObject.FindGameObjectWithTag("EnergyOBJ").name);
-        //mainModule.simulationSpeed = GetSimSpeedFromBPM();
+        mainModule.simulationSpeed = GetSimSpeedFromBPM();
         Debug.Log("Sim speed: " + mainModule.simulationSpeed.ToString());
         //text.text =  GLOBAL.CurrentMusic.BPM.ToString();
         //mainModule.startColor = new Color(135, 8, 195);
