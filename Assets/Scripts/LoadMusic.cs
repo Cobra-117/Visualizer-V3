@@ -109,7 +109,7 @@ public class LoadMusic : MonoBehaviour
         nameStartIndex ++;
         Debug.Log("startIndex " + nameStartIndex.ToString());
         for (int i = 0; i + nameStartIndex < path.Length; i++) {
-            Debug.Log("WIll insert: " + path[i + nameStartIndex].ToString());
+            //Debug.Log("WIll insert: " + path[i + nameStartIndex].ToString());
             //name = name.Insert(i, "a");
             name = name.Insert(i, path[i + nameStartIndex].ToString());
             //Debug.Log("name : " + name);
@@ -118,3 +118,5 @@ public class LoadMusic : MonoBehaviour
 		return (name);
     }
 }
+///home/tLacheroy/CMGT/Visualizer-V3/Assets/StreamingAssets/onlymp3.to - Disturbed - The Sound Of Silence [Official Music Video]-u9Dg-g7t2l4-192k-1655753090867.wav
+///home/tLacheroy/CMGT/Visualizer-V3/Assets/StreamingAssets/silence.wav

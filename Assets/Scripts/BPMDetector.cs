@@ -38,6 +38,10 @@ public class BPMDetector : MonoBehaviour
         Debug.Log("BPM: " + getBPM().ToString());
         if (GLOBAL.CurrentMusic.isLoaded == false) {
             LoadMusic(GLOBAL.CurrentMusic.name);
+            var audiopath = Path.Combine(Application.streamingAssetsPath, GLOBAL.CurrentMusic.name);
+            filename = audiopath;
+            //filename = "/home/tLacheroy/CMGT/Visualizer-V3/Assets/StreamingAssets/silence.wav";
+            Detect();
             GLOBAL.CurrentMusic.isLoaded = true;
         }
     }
@@ -171,13 +175,15 @@ public class BPMDetector : MonoBehaviour
         }*/
         //clip = Resources.Load(Path.Combine( Application.dataPath, "Resources", "Axel_F.wav")) as AudioClip;
         Debug.Log("GlbName : " + GLOBAL.CurrentMusic.name);
-        clip = Resources.Load<AudioClip>(System.IO.Path.GetFileNameWithoutExtension(GLOBAL.CurrentMusic.name));
-        /*var audiopath = Path.Combine(Application.persistentDataPath, path);
+        //clip = Resources.Load<AudioClip>(System.IO.Path.GetFileNameWithoutExtension(GLOBAL.CurrentMusic.name));
+        var audiopath = Path.Combine(Application.streamingAssetsPath, "silence.wav");
         Debug.Log("path: " + audiopath.ToString());
-        clip = await LoadClip(audiopath);*/
+        clip = await LoadClip(audiopath);
         audioSource.clip = clip;
         if (clip)
             Debug.Log("Frequency :" + clip.frequency.ToString());
+        else
+            Debug.Log("Clip in null");
         audioSource.Play();
         //clip.
         //filename = Path.Combine( Application.dataPath, "Axel_F.wav");
@@ -187,9 +193,10 @@ public class BPMDetector : MonoBehaviour
      async Task<AudioClip> LoadClip(string path)
     {
      //AudioClip clip = null;
-     clip = Resources.Load(Path.Combine( Application.dataPath, "Axel_F.wav")) as AudioClip;
-     return clip;
-     Debug.Log("path: " + path);
+     //clip = Resources.Load(Path.Combine( Application.dataPath, "Axel_F.wav")) as AudioClip;
+     //return clip;
+     //path = Path.Combine(Application.streamingAssetsPath, path);
+     Debug.Log("path (load clip): " + path);
      using (UnityWebRequest uwr = UnityWebRequestMultimedia.GetAudioClip(path, AudioType.WAV))
      {
          uwr.SendWebRequest();
@@ -214,7 +221,7 @@ public class BPMDetector : MonoBehaviour
              Debug.Log($"{err.Message}, {err.StackTrace}");
          }
      }
- 
+        Debug.Log("returning clip");
      return clip;
  }
 
