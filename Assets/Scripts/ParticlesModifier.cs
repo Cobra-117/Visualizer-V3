@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.UI;
 
 public class ParticlesModifier : MonoBehaviour
 {
@@ -17,12 +17,18 @@ public class ParticlesModifier : MonoBehaviour
     //public Color[] colors;
     float lastColorChange;
     float energy = 0.1f;
-    public float nsm = 5.0f;
+    //public float nsm = 5.0f;
 
     public float colorChangeInterval;
     private float goldenNumber = 1.618033f;
 
     public TextMeshProUGUI text;
+
+    public bool automaticMod = false;
+    public Slider simSpeedSlider;
+    public Slider colorSpeedSlider;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,8 +50,9 @@ public class ParticlesModifier : MonoBehaviour
         float test  = (float)BPM * 5; 
         //mainModule.simulationSpeed = Mathf.Sqrt((float)GLOBAL.CurrentMusic.BPM * (float)GLOBAL.CurrentMusic.BPM* goldenNumber)/100;
         //energy = float.Parse(GameObject.FindGameObjectWithTag("EnergyOBJ").name);
-        mainModule.simulationSpeed = GetSimSpeedFromBPM();
+        mainModule.simulationSpeed = ComputeSimSpeed();
         Debug.Log("Sim speed: " + mainModule.simulationSpeed.ToString());
+        Debug.Log("Color change interval: " + GetColorChangeSpeed().ToString());
         //text.text =  GLOBAL.CurrentMusic.BPM.ToString();
         //mainModule.startColor = new Color(135, 8, 195);
         //particleSystem.emission.rateOverTime =  BPM * 5;
@@ -71,10 +78,14 @@ public class ParticlesModifier : MonoBehaviour
         UnityEngine.Debug.Log("BPM in PYTH: " + GLOBAL.CurrentMusic.BPM);
     }
 
-    public float GetSimSpeedFromBPM()
+    public float ComputeSimSpeed()
     {
         //return (0.0162857f * GLOBAL.CurrentMusic.BPM - 0.864286f);
-        return (0.0165714f  * GLOBAL.CurrentMusic.BPM - 1.02857f);
+        if (automaticMod)
+            return (0.0165714f  * GLOBAL.CurrentMusic.BPM - 1.02857f);
+        else {
+            return simSpeedSlider.value;
+        }
         //150 = 1.5
         //100 = 0.5
         //75 = 0.3
@@ -82,7 +93,10 @@ public class ParticlesModifier : MonoBehaviour
 
     public float GetColorChangeSpeed()
     {
-        return (8.9f - 0.06f * GLOBAL.CurrentMusic.BPM);
+        if (automaticMod == true)
+            return (8.9f - 0.06f * GLOBAL.CurrentMusic.BPM);
+        else 
+            return (colorSpeedSlider.value);
         //150 = 0.2
         //100 = 2
         //75 = 5
