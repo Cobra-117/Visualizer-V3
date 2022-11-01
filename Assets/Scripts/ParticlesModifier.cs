@@ -24,7 +24,7 @@ public class ParticlesModifier : MonoBehaviour
 
     public TextMeshProUGUI text;
 
-    public bool automaticMod = false;
+    public Toggle automaticMod;
     public Slider simSpeedSlider;
     public Slider colorSpeedSlider;
 
@@ -81,7 +81,7 @@ public class ParticlesModifier : MonoBehaviour
     public float ComputeSimSpeed()
     {
         //return (0.0162857f * GLOBAL.CurrentMusic.BPM - 0.864286f);
-        if (automaticMod)
+        if (automaticMod.isOn)
             return (0.0165714f  * GLOBAL.CurrentMusic.BPM - 1.02857f);
         else {
             return simSpeedSlider.value;
@@ -93,7 +93,7 @@ public class ParticlesModifier : MonoBehaviour
 
     public float GetColorChangeSpeed()
     {
-        if (automaticMod == true)
+        if (automaticMod.isOn)
             return (8.9f - 0.06f * GLOBAL.CurrentMusic.BPM);
         else 
             return (colorSpeedSlider.value);

@@ -50,7 +50,7 @@ public class LoadMusic : MonoBehaviour
 		//						   FileBrowser.PickMode.Folders, false, null, null, "Select Folder", "Select" );
 
 		// Coroutine example
-		LoadNewMusic();
+		//LoadNewMusic();
     }
 
 	public void LoadNewMusic()
