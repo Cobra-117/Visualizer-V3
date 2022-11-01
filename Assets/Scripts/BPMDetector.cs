@@ -25,7 +25,8 @@ public class BPMDetector : MonoBehaviour
     public Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
 
     void Start()
-    {   
+    {
+        BPM = GLOBAL.CurrentMusic.BPM;   
         sampleRate = 44100;
         Debug.Log("sampleRate1: " + sampleRate.ToString());
         filename = "Assets/Resources/silence.wav";
@@ -137,6 +138,8 @@ public class BPMDetector : MonoBehaviour
         //Debug.Log("track lenght:" + (trackLength / 60).ToString());
         Debug.Log("BPM2: " + BPM.ToString());
         GLOBAL.CurrentMusic.BPM = (int)BPM;
+        if (BPM == 0)
+            GLOBAL.CurrentMusic.BPM = 70;
 
     }
 
