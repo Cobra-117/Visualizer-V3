@@ -15,4 +15,12 @@ public class GLOBAL : MonoBehaviour
         public static string path = "";
         public static bool isLoaded = true;
     }
+
+    public static COLORMODES currentColorMode = COLORMODES.JOYFUL;
+
+    public enum COLORMODES {
+        JOYFUL,
+        SAD,
+        ROMANTIC
+    }
 }

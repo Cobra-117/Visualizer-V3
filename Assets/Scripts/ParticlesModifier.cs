@@ -10,11 +10,10 @@ public class ParticlesModifier : MonoBehaviour
     public ParticleSystem particleSystem;
     //public BPMDetector bpm
 
-    public Color[] colors;// =  {new Color(0.52f, 0.03f, 0.76f)/*purple*/,
-   // new Color(0.03f, 0.89f, 0.78f)/*cyan*/, new Color(8, 195, 16)/*green*/,
-   // new Color(195, 8, 22)/*red*/, new Color(248, 11, 156)/*pink*/ 
-    //};
-    //public Color[] colors;
+    public Color[] joyfulColors;
+    public Color[] romanticColors;
+
+     public Color[] sadColors;
     float lastColorChange;
     float energy = 0.1f;
     //public float nsm = 5.0f;
@@ -32,12 +31,19 @@ public class ParticlesModifier : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        colors = new Color[] {new Color(133, 8, 194)/*purple*/,
+        joyfulColors = new Color[] {new Color(133, 8, 194)/*purple*/,
         new Color(8, 195, 177)/*cyan*/, new Color(8, 195, 16)/*green*/,
         new Color(195, 8, 22)/*red*/, new Color(248, 11, 156)/*pink*/ };
+
+        romanticColors = new Color[] { new Color(195, 8, 22)/*red*/, 
+        new Color(248, 11, 156)/*pink*/ };
+
+        sadColors = new Color[] { new Color(0, 0, 0)/*black*/, 
+        new Color(92, 92, 92)/*dark grey*/, new Color(152, 152, 152) /*light grey*/,
+        new Color(212, 212, 212)/*dark grey*/};
         particleSystem = GetComponent<ParticleSystem>();
         lastColorChange = Time.time;
-        Debug.Log("Size: " + colors.Length);
+        //Debug.Log("Size: " + colors.Length);
         StartCoroutine(changeColor());
     }
 
@@ -64,7 +70,22 @@ public class ParticlesModifier : MonoBehaviour
         var mainModule = particleSystem.main;
         Random.InitState((int)(GLOBAL.CurrentMusic.BPM * goldenNumber));
         for(;;) {
-            Color pickedColor = colors[Random.Range(0, colors.Length)];
+            Color pickedColor = joyfulColors[0];
+            
+            switch (GLOBAL.currentColorMode)
+            {
+                case GLOBAL.COLORMODES.JOYFUL:
+                    pickedColor = joyfulColors[Random.Range(0, joyfulColors.Length)];
+                    break;
+                case GLOBAL.COLORMODES.ROMANTIC:
+                    pickedColor = romanticColors[Random.Range(0, romanticColors.Length)];
+                    break;
+                case GLOBAL.COLORMODES.SAD:
+                    pickedColor = sadColors[Random.Range(0, sadColors.Length)];
+                    break;
+                default: break;
+            }
+           
             mainModule.startColor = new ParticleSystem.MinMaxGradient(new Color(pickedColor.r/255, pickedColor.g/255, pickedColor.b/255));
             //yield return new WaitForSeconds(1/GLOBAL.CurrentMusic.BPM);
             yield return new WaitForSeconds(GetColorChangeSpeed());
