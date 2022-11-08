@@ -102,7 +102,7 @@ public class ParticlesModifier : MonoBehaviour
     public float ComputeSimSpeed()
     {
         //return (0.0162857f * GLOBAL.CurrentMusic.BPM - 0.864286f);
-        if (automaticMod.isOn)
+        if (automaticMod.isOn && Application.platform != RuntimePlatform.WebGLPlayer)
             return (0.0165714f  * GLOBAL.CurrentMusic.BPM - 1.02857f);
         else {
             return simSpeedSlider.value;
@@ -114,7 +114,7 @@ public class ParticlesModifier : MonoBehaviour
 
     public float GetColorChangeSpeed()
     {
-        if (automaticMod.isOn)
+        if (automaticMod.isOn && Application.platform != RuntimePlatform.WebGLPlayer)
             return (8.9f - 0.06f * GLOBAL.CurrentMusic.BPM);
         else 
             return (colorSpeedSlider.value);

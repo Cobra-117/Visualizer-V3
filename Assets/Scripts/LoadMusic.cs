@@ -55,6 +55,8 @@ public class LoadMusic : MonoBehaviour
 
 	public void LoadNewMusic()
 	{
+		if (Application.platform == RuntimePlatform.WebGLPlayer)
+			return;
 		StartCoroutine(ShowLoadDialogCoroutine());
 
 	}
